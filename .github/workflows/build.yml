@@ -6,9 +6,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
-# IMPORTANTE: Añadir estos permisos
+# Estos permisos son necesarios para que funcione
 permissions:
-  contents: write
+  contents: write    # Esto permite escribir en el repositorio
   pages: write
   id-token: write
 
@@ -26,23 +26,16 @@ jobs:
         node-version: '18'
         
     - name: Install dependencies
-      run: npm install
+      run: npm ci  # Cambiado a npm ci para instalaciones más limpias
       
     - name: Build TypeScript
       run: npm run build
       
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: dist
-        path: dist/
-        
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      # Cambiamos a una acción más simple y directa
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
-        keep_files: true
-        # Añadir esta línea para forzar permisos
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
+        folder: .  # Publica todo el repositorio
+        branch: gh-pages  # La rama donde se publicará
+        clean: true  # Limpia archivos viejos
+        token: ${{ secrets.GITHUB_TOKEN }}  # Usa el token explícitamente
