@@ -1,0 +1,16 @@
+{
+  "name": "Presentaciones",
+  "version": "0.1.0",
+  "description": "Generador de presentaciones desde JSON a HTML",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "keywords": ["presentaciones", "json", "html"],
+  "author": "Mike-0-Code",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
