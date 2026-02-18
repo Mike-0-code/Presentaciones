@@ -18,7 +18,7 @@ export interface AppError {
   mensaje: string;
   diapositivaId?: number;      // Opcional: en qué diapositiva ocurrió
   detalle?: unknown;           // Información adicional
-  timestamp?: string;          // AÑADIMOS ESTO (opcional)
+  timestamp?: string;          // AÑADIDO: para registrar cuándo ocurrió
 }
 
 // Función para crear errores de forma consistente
