@@ -18,6 +18,7 @@ export interface AppError {
   mensaje: string;
   diapositivaId?: number;      // Opcional: en qué diapositiva ocurrió
   detalle?: unknown;           // Información adicional
+  timestamp?: string;          // AÑADIMOS ESTO (opcional)
 }
 
 // Función para crear errores de forma consistente
@@ -30,7 +31,7 @@ export function crearError(
     codigo,
     mensaje,
     diapositivaId,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString()  // Esto ahora es válido
   };
 }
 
@@ -39,6 +40,7 @@ export function errorInesperado(error: unknown): AppError {
   return {
     codigo: 'ERROR_INTERNO',
     mensaje: error instanceof Error ? error.message : 'Error desconocido',
-    detalle: error
+    detalle: error,
+    timestamp: new Date().toISOString()
   };
 }
