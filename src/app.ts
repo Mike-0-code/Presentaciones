@@ -5,7 +5,6 @@
  */
 
 import { PresentacionEngine } from './core/engine.js';
-import { todosLosLayouts } from './layouts/index.js';
 import { HTMLExporter } from './exporters/html.exporter.js';
 import { Resultado, PresentacionRenderizada } from './core/types.js';
 
@@ -20,18 +19,6 @@ export class PresentatorApp {
   constructor() {
     this.motor = new PresentacionEngine();
     this.exportador = new HTMLExporter();
-    
-    // Registrar todos los layouts en el motor
-    this.registrarLayouts();
-  }
-
-  /**
-   * Registra todos los layouts disponibles
-   */
-  private registrarLayouts(): void {
-    // Por ahora no hay método registrar, lo añadiremos después
-    // cuando extendamos el motor
-    console.log('Layouts disponibles:', todosLosLayouts.length);
   }
 
   /**
