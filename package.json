@@ -1,5 +1,5 @@
 {
-  "name": "presentator-mvp",
+  "name": "Presentaciones",
   "version": "0.1.0",
   "description": "Generador de presentaciones desde JSON a HTML",
   "type": "module",
@@ -8,7 +8,7 @@
     "watch": "tsc --watch"
   },
   "keywords": ["presentaciones", "json", "html"],
-  "author": "Tu Nombre",
+  "author": "Mike-0-Code",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.0.0"
