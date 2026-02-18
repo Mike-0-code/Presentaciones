@@ -3,16 +3,16 @@
  * SISTEMA DE ERRORES
  * ========================================
  */
-// Función para crear errores de forma consistente
+// Función para crear errores
 export function crearError(codigo, mensaje, diapositivaId) {
     return {
         codigo,
         mensaje,
         diapositivaId,
-        timestamp: new Date().toISOString() // Esto ahora es válido
+        timestamp: new Date().toISOString()
     };
 }
-// Función para manejar errores inesperados
+// Función para errores inesperados
 export function errorInesperado(error) {
     return {
         codigo: 'ERROR_INTERNO',

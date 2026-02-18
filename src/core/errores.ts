@@ -6,22 +6,22 @@
 
 // Códigos de error predefinidos
 export type CodigoError = 
-  | 'LAYOUT_NO_EXISTE'        // El tipo de layout no está registrado
-  | 'CONTENIDO_INVALIDO'       // El contenido no coincide con lo esperado
-  | 'JSON_INVALIDO'            // El JSON de entrada no es válido
-  | 'DATOS_FALTANTES'          // Falta información obligatoria
-  | 'ERROR_INTERNO';           // Cualquier otro error
+  | 'LAYOUT_NO_EXISTE'
+  | 'CONTENIDO_INVALIDO'
+  | 'JSON_INVALIDO'
+  | 'DATOS_FALTANTES'
+  | 'ERROR_INTERNO';
 
 // Estructura de un error de la aplicación
 export interface AppError {
   codigo: CodigoError;
   mensaje: string;
-  diapositivaId?: number;      // Opcional: en qué diapositiva ocurrió
-  detalle?: unknown;           // Información adicional
-  timestamp?: string;          // AÑADIDO: para registrar cuándo ocurrió
+  diapositivaId?: number;
+  detalle?: unknown;
+  timestamp?: string;  // ← TIENE QUE ESTAR ESTA LÍNEA
 }
 
-// Función para crear errores de forma consistente
+// Función para crear errores
 export function crearError(
   codigo: CodigoError, 
   mensaje: string, 
@@ -31,11 +31,11 @@ export function crearError(
     codigo,
     mensaje,
     diapositivaId,
-    timestamp: new Date().toISOString()  // Esto ahora es válido
+    timestamp: new Date().toISOString()
   };
 }
 
-// Función para manejar errores inesperados
+// Función para errores inesperados
 export function errorInesperado(error: unknown): AppError {
   return {
     codigo: 'ERROR_INTERNO',
